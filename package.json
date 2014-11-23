@@ -1,0 +1,17 @@
+{
+  "name": "react-distributed-batching",
+  "version": "0.0.1",
+  "description": "High performance batching strategy for React",
+  "main": "DistributedBatchingStrategy.js",
+  "peerDependencies": {
+    "react": "0.12.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kasu/react-distributed-batching"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Kasper Sandin"
+}
