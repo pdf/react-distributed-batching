@@ -2,7 +2,11 @@
 
 Inspired by [react-raf-batching](https://github.com/petehunt/react-raf-batching).
 
-Distributes updates over multiple animation frames aiming to maintain 60fps.
+Distributes react updates over multiple animation frames aiming to maintain 60fps.
+
+## Motivation
+
+Reacts default batching strategy batches as many update instructions as possible to be able to optimize the update procedure, which may (depending on the complexity of your application) result in scenarios where update batches do not finish fast enough for the application to maintain 60fps.
 
 ## Usage
 
