@@ -15,7 +15,7 @@ ReactUpdates.injection.injectBatchingStrategy(DistributedBatchingStrategy);
 
 # Dependencies
 
-The batching strategy assumes you have the required dependencies in place. If you are targeting browsers that do not support these functions you will have to provide a polyfill.
+If you are targeting browsers that do not support these functions you will have to provide a polyfill.
 
 - [High Resolution Timer](https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HighResolutionTime/Overview.html)
 - [requestAnimationFrame](https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/RequestAnimationFrame/Overview.html)
