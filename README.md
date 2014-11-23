@@ -6,7 +6,7 @@ Distributes react updates over multiple animation frames aiming to maintain 60fp
 
 ## Motivation
 
-Reacts default batching strategy batches as many update instructions as possible to be able to optimize the update procedure, which may (depending on the complexity of your application) result in scenarios where update batches do not finish fast enough for the application to maintain 60fps.
+Reacts default batching strategy batches as many update instructions as possible to be able to optimize the update procedure. This may, depending on the complexity of your application, result in scenarios where update batches do not finish fast enough for the application to maintain 60fps.
 
 ## Usage
 
