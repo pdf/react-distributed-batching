@@ -4,7 +4,7 @@ Inspired by [react-raf-batching](https://github.com/petehunt/react-raf-batching)
 
 Distributes updates over multiple animation frames aiming to maintain 60fps.
 
-# Usage
+## Usage
 
 ```Javascript
 var DistributedBatchingStrategy = require('react-distributed-batching');
@@ -13,7 +13,7 @@ var ReactUpdates = require('react/lib/ReactUpdates');
 ReactUpdates.injection.injectBatchingStrategy(DistributedBatchingStrategy);
 ```
 
-# Dependencies
+## Dependencies
 
 If you are targeting browsers that do not support these functions you will have to provide a polyfill.
 
