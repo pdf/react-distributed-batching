@@ -1,4 +1,4 @@
-# Distributed Batching Strategy for React
+# Distributed Batching Strategy for [React](https://github.com/facebook/react)
 
 Inspired by [react-raf-batching](https://github.com/petehunt/react-raf-batching).
 
