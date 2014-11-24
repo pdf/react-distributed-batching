@@ -1,3 +1,27 @@
+/*
+ The MIT License (MIT)
+
+ Copyright (c) 2014 Kasper Sandin
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+*/
+
 var ReactUpdates = require('react/lib/ReactUpdates');
 
 var DistributedBatchingStrategy = {
@@ -60,6 +84,12 @@ var DistributedBatchingStrategy = {
         }
     },
     performUpdates: function (updates) {
+        var updateId = updates.map(function (update) {
+            return update.component.constructor.displayName
+        }).join(", ");
+
+        console.profile(updateId);
+
         // Enqueue the updates by bypassing the batching strategy
         this.isBatchingUpdates = true;
         updates.forEach(function (update) {
@@ -71,6 +101,8 @@ var DistributedBatchingStrategy = {
         var startTime = performance.now();
         ReactUpdates.flushBatchedUpdates();
         var timeSpent = performance.now() - startTime;
+
+        console.profileEnd(updateId);
 
         // Estimate time spent on each component and store it to be able to estimate promising updates
         var estimatedUpdateTime = timeSpent;
