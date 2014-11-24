@@ -84,12 +84,6 @@ var DistributedBatchingStrategy = {
         }
     },
     performUpdates: function (updates) {
-        var updateId = updates.map(function (update) {
-            return update.component.constructor.displayName
-        }).join(", ");
-
-        console.profile(updateId);
-
         // Enqueue the updates by bypassing the batching strategy
         this.isBatchingUpdates = true;
         updates.forEach(function (update) {
@@ -101,8 +95,6 @@ var DistributedBatchingStrategy = {
         var startTime = performance.now();
         ReactUpdates.flushBatchedUpdates();
         var timeSpent = performance.now() - startTime;
-
-        console.profileEnd(updateId);
 
         // Estimate time spent on each component and store it to be able to estimate promising updates
         var estimatedUpdateTime = timeSpent;
