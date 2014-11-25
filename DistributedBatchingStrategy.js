@@ -23,6 +23,7 @@
 */
 
 var ReactUpdates = require('react/lib/ReactUpdates');
+var ReactCompositeComponent = require('react/lib/ReactCompositeComponent');
 
 var DistributedBatchingStrategy = {
     frameBudget: 1000 / 60,
@@ -32,7 +33,7 @@ var DistributedBatchingStrategy = {
     batchedUpdates: function (enqueueUpdate, component, callback) {
         // Execute top level events right away since we don't know how to estimate them.
         // (without estimation the updates are always separated into one frame each)
-        if (component.constructor.name == "TopLevelCallbackBookKeeping") {
+        if (!(component instanceof ReactCompositeComponent.Base)) {
             enqueueUpdate(component, callback);
             return;
         }
