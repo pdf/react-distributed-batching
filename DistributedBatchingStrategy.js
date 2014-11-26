@@ -24,6 +24,7 @@
 
 var ReactUpdates = require('react/lib/ReactUpdates');
 var ReactCompositeComponent = require('react/lib/ReactCompositeComponent');
+var now = require('./now');
 
 var DistributedBatchingStrategy = {
     frameBudget: 1000 / 60,
@@ -93,9 +94,9 @@ var DistributedBatchingStrategy = {
         this.isBatchingUpdates = false;
 
         // Flush and measure time spent
-        var startTime = performance.now();
+        var startTime = now();
         ReactUpdates.flushBatchedUpdates();
-        var timeSpent = performance.now() - startTime;
+        var timeSpent = now() - startTime;
 
         // Estimate time spent on each component and store it to be able to estimate promising updates
         var estimatedUpdateTime = timeSpent;
