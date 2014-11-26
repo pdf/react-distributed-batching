@@ -21,5 +21,4 @@ ReactUpdates.injection.injectBatchingStrategy(DistributedBatchingStrategy);
 
 If you are targeting browsers that do not support these functions you will have to provide a polyfill.
 
-- [High Resolution Timer](https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HighResolutionTime/Overview.html)
 - [requestAnimationFrame](https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/RequestAnimationFrame/Overview.html)
